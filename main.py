@@ -9,10 +9,11 @@ if __name__ == '__main__':
     # init class and set xlsx fileName
     excelSql = ExcelSql('test.xlsx')
 
-    # init an UPDATE SQL request on table leads from the sheet leads start at the row 2
+    # init an UPDATE SQL request on table leads from the sheet leads, start at the row 2
     excelSql.initReqSql(sqlType="update", table='leads', fromSheetName='leads', offset=2)
 
-    # add a set  `email_2` = {entity.B where leads.Q contain  or is contained by entity.C}
+    # leads.A mean sheetName = leads and  col = A
+    # add a set  `email_2` = (entity.B where leads.Q contain  or is contained by entity.C)
     excelSql.addFilter(BaseFilter(type="set", field='email_2', value=ComplexValue( from_='leads.Q=entity.C', value='entity.B', equality=EqualityType.CONTAIN)))
     excelSql.addFilter(BaseFilter(type="set", field='entite_id', value=ComplexValue( from_='leads.Q=entity.C', value='entity.A', equality=EqualityType.CONTAIN)))
     excelSql.addFilter(BaseFilter(type="set", field='step_id', value=ComplexValue(from_='leads.R=step.B', value='step.A', equality=EqualityType.CONTAIN)))
@@ -23,6 +24,6 @@ if __name__ == '__main__':
     excelSql.addFilter(BaseFilter(type="where", field='nom', value=SimpleValue(value='leads.B')))
     excelSql.addFilter(BaseFilter(type="where", field='date_creation', value=SimpleValue(value='leads.L')))
 
-    # get your requests like
+    # get all your requests that look like
     # update leads set `email_2` = 'mail@entite.com4', `entite_id` = 9, `step_id` = 4, `job_id` = 4 where `email` = 'mail@mail.com' and `nom` = 'nom' and `date_creation` = '2021-10-08 08:53:41';
     excelSql.generateSQL()
