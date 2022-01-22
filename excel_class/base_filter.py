@@ -1,7 +1,7 @@
 from typing import Union
 
-from valueClass.ComplexValue import ComplexValue
-from valueClass.SimpleValue import SimpleValue
+from value_class.complex_value import ComplexValue
+from value_class.simple_value import SimpleValue
 
 
 class BaseFilter:

@@ -1,7 +1,7 @@
 from typing import Union
 
-from ExcelClass.ColSheet import ColSheet
-from valueClass.value_type import ValueType
+from excel_class.col_sheet import ColSheet
+from value_class.value_type import ValueType
 
 
 class SimpleValue:

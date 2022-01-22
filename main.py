@@ -1,9 +1,9 @@
-from ExcelClass.ExcelSql import ExcelSql
-from ExcelClass.BaseFilter import BaseFilter
+from excel_class.excel_sql import ExcelSql
+from excel_class.base_filter import BaseFilter
 
-from valueClass.ComplexValue import ComplexValue
-from valueClass.SimpleValue import SimpleValue
-from valueClass.equality_type import EqualityType
+from value_class.complex_value import ComplexValue
+from value_class.simple_value import SimpleValue
+from value_class.equality_type import EqualityType
 
 if __name__ == '__main__':
     excelSql = ExcelSql('test.xlsx')

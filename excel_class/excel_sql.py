@@ -1,9 +1,9 @@
 import openpyxl
 
-from ExcelClass.BaseFilter import BaseFilter
-from ExcelClass.ColSheet import ColSheet
-from valueClass.ComplexValue import ComplexValue
-from valueClass.equality_type import EqualityType
+from excel_class.base_filter import BaseFilter
+from excel_class.col_sheet import ColSheet
+from value_class.complex_value import ComplexValue
+from value_class.equality_type import EqualityType
 
 
 class ExcelSql:

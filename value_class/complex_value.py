@@ -1,9 +1,9 @@
 from typing import Union
 
-from ExcelClass.ColSheet import ColSheet
-from valueClass.SimpleValue import SimpleValue
-from valueClass.equality_type import EqualityType
-from valueClass.value_type import ValueType
+from excel_class.col_sheet import ColSheet
+from value_class.simple_value import SimpleValue
+from value_class.equality_type import EqualityType
+from value_class.value_type import ValueType
 
 
 class ComplexValue(SimpleValue):
