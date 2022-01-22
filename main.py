@@ -9,7 +9,7 @@ if __name__ == '__main__':
     # init class and set xlsx fileName
     excelSql = ExcelSql('test.xlsx')
 
-    # init and UPDATE SQL request on table leads from the sheet leads start at the row 2
+    # init an UPDATE SQL request on table leads from the sheet leads start at the row 2
     excelSql.initReqSql(sqlType="update", table='leads', fromSheetName='leads', offset=2)
 
     # add a set  `email_2` = {entity.B where leads.Q contain  or is contained by entity.C}
