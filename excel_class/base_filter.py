@@ -13,6 +13,15 @@ class BaseFilter:
     isOr: bool = False
 
     def __init__(self, type: str, field: str, value: Union[ComplexValue, SimpleValue], required: bool= False, equality:str= "=", isOr:bool = False):
+        """
+
+        :param type: where or set
+        :param field: first param
+        :param value: last param
+        :param required: if last param = null dont show the request
+        :param equality: not implemented
+        :param isOr: or where  instead of and where
+        """
         self.type = type
         self.field = field
         self.value = value

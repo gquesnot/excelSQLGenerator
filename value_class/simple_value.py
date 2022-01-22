@@ -10,6 +10,10 @@ class SimpleValue:
     realVal: None
 
     def __init__(self, value: str):
+        """
+
+        :param value: str like "sheetName.Col"
+        """
         self.type = ValueType.SIMPLE
         self.value = ColSheet(value)
 

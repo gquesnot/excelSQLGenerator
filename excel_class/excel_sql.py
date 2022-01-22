@@ -32,12 +32,25 @@ class ExcelSql:
     sheetToLoad: dict[str, list[ColSheet]] = {}
     offset: int = 2
 
-    def __init__(self, xlsxName):
+    def __init__(self, xlsxName: str) :
+        """
+
+        :param xlsxName: path of your XLSX file
+        """
         self.workBook = openpyxl.load_workbook(filename=xlsxName)
         self.workSheets = {sheetName: self.workBook.get_sheet_by_name(sheetName) for sheetName in
                            self.workBook.sheetnames}
 
-    def initReqSql(self, sqlType, table, fromSheetName, offset=2):
+    def initReqSql(self, sqlType:str, table:str, fromSheetName:str, offset=2):
+        """
+
+        :rtype: object
+        :param sqlType: update, select or delete
+        :param table: name of the sql table
+        :param fromSheetName: name of the main sheet
+        :param offset: start offset on the main sheet
+        :return:
+        """
         self.fromSheetName = fromSheetName
         self.table = table
         self.type = sqlType
@@ -45,6 +58,11 @@ class ExcelSql:
         return self
 
     def addFilter(self, filter: BaseFilter):
+        """
+
+        :param filter: add a filter to  the request where or set
+        :return:
+        """
         if filter.type not in self.filters.keys():
             self.filters[filter.type] = []
         self.filters[filter.type].append(filter)

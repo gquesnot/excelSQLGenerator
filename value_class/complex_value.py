@@ -12,14 +12,19 @@ class ComplexValue(SimpleValue):
     realVal: None
     equality = EqualityType
 
-    def __init__(self,value: str, from_: str = None, equality:EqualityType=EqualityType.EQUAL):
+    def __init__(self, value: str, from_: str = None, equality: EqualityType = EqualityType.EQUAL):
+        """
+
+        :param value: str like "otherSheetName.Col"
+        :param from_: str like "oriSheetName.Col=otherSheetName.Col"
+        :param equality: EQUAL = oriSheetVal.min().trim() = otherSheetCol.min().trim() , CONTAIN = oriSheetVal.min().trim() in  otherSheetCol.min().trim() or  otherSheetCol.min().trim() in  oriSheetVal.min().trim(),
+        """
         super().__init__(value)
         self.type = ValueType.COMPLEX
         self.equality = equality
         from_ = from_.split('=')
         self.from_ = ColSheet(from_[0])
         self.to_ = ColSheet(from_[1])
-
 
     def getAllValue(self):
         res = super().getAllValue()
